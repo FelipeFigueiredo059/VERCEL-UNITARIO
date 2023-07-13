@@ -21,7 +21,7 @@ function EditEmployeePage() {
     const showEmployeeData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3005/employeeinfo/byId/${id}`
+          `https://vercel-unitario.vercel.app/employeeinfo/byId/${id}`
         );
         setEmployeeData(response.data);
       } catch (error) {
@@ -45,7 +45,7 @@ function EditEmployeePage() {
 
     try {
       await axios.put(
-        `http://localhost:3005/employeeinfo/byId/${id}`,
+        `https://vercel-unitario.vercel.app/employeeinfo/byId/${id}`,
         employeeData
       );
       navigateTo(`/employee/${id}`);

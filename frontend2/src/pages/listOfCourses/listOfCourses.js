@@ -41,7 +41,7 @@ const ListOfCourses = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/course")
+      .get("https://vercel-unitario.vercel.app/course")
       .then((response) => {
         const sortedUsers = response.data.sort((a, b) =>
           a.name.localeCompare(b.name)
@@ -51,7 +51,6 @@ const ListOfCourses = () => {
       .catch((err) => console.log(err));
   }, []);
 
- 
   return (
     <div className="page-container">
       <div className="content-container">

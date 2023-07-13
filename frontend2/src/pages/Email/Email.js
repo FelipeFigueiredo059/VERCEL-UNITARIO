@@ -39,7 +39,7 @@ function Email() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3005/api/email", {
+      await axios.post("https://vercel-unitario.vercel.app/api/email", {
         to,
         subject,
         text,

@@ -5,7 +5,6 @@ import "./employeeCourses.css";
 import logo from "./../../assets/images/logo.png";
 import Header from "../Header/header";
 
-
 function EmployeeCourses() {
   const navigateTo = useNavigate();
   const { id } = useParams();
@@ -26,7 +25,7 @@ function EmployeeCourses() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:3005/employeeinfo/byId/${id}`)
+        .get(`https://vercel-unitario.vercel.app/employeeinfo/byId/${id}`)
         .then((response) => {
           showCourses(response.data.name);
         })
@@ -38,7 +37,7 @@ function EmployeeCourses() {
 
   const showCourses = (name) => {
     axios
-      .get(`http://localhost:3005/course?name=${name}`)
+      .get(`https://vercel-unitario.vercel.app/course?name=${name}`)
       .then((response) => {
         const employeeCourses = response.data.filter(
           (course) => course.name === name
@@ -55,7 +54,7 @@ function EmployeeCourses() {
       <div className="main-table">
         <div className="table-employees">
           <div className="header">
-          <Header/>
+            <Header />
           </div>
           <h2>Cursos do Funcionário</h2>
           <table>
@@ -68,11 +67,12 @@ function EmployeeCourses() {
               {courses.map((course, key) => (
                 <tr key={key}>
                   <td>
-                    <div 
-                      key={key} 
-                      className="name" 
-                      onClick={() => navigateTo(`/curso/${course.id}`)}>
-                        {course.course}
+                    <div
+                      key={key}
+                      className="name"
+                      onClick={() => navigateTo(`/curso/${course.id}`)}
+                    >
+                      {course.course}
                     </div>
                   </td>
                 </tr>

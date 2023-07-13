@@ -24,7 +24,7 @@ function CourseInfo() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:3005/course/${id}`)
+        .get(`https://vercel-unitario.vercel.app/${id}`)
         .then((response) => {
           setCourse(response.data);
         })
@@ -32,7 +32,7 @@ function CourseInfo() {
           console.log(error);
         });
     }
-  }, [id]);  
+  }, [id]);
 
   const editCourseData = () => {
     navigateTo(`/editCourse/${id}`);
@@ -67,10 +67,14 @@ function CourseInfo() {
                     <div className="info">{course.info}</div>
                   </td>
                   <td>
-                    <div className="conclusiondate">{course.conclusiondate}</div>
+                    <div className="conclusiondate">
+                      {course.conclusiondate}
+                    </div>
                   </td>
                   <td>
-                    <div className="expirationdate">{course.expirationdate}</div>
+                    <div className="expirationdate">
+                      {course.expirationdate}
+                    </div>
                   </td>
                 </tr>
               )}

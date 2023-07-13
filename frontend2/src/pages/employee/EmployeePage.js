@@ -26,7 +26,7 @@ function EmployeePage() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:3005/employeeinfo/byId/${id}`)
+        .get(`https://vercel-unitario.vercel.app/employeeinfo/byId/${id}`)
         .then((response) => {
           setEmployeeObject(response.data);
         });
